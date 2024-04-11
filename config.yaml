@@ -3,167 +3,53 @@
 #########################
 ## SHOULD BE USING MIG ##
 #########################
-should-be-using-mig-della-gpu:
-  cluster: della
+should-be-using-mig-core-gpu:
+  cluster: core
   partition: gpu
 
 
 ############################
 ## LOW CPU/GPU EFFICIENCY ##
 ############################
-low-xpu-efficiency-della-cpu:
-  cluster: della
-  cluster_name: "Della (cpu)"
+low-xpu-efficiency-core-cpu:
+  cluster: core
+  cluster_name: "core (cpu)"
   partitions:
-    - cpu
+    - fast
+    - long
+    - bigmem
   xpu: cpu
   eff_thres_pct: 60
   proportion_thres_pct: 2
   num_top_users: 15
-  excluded_users:
-    - aturing
-    - einstein
+  excluded_users: []
 
-low-xpu-efficiency-della-gpu:
-  cluster: della
-  cluster_name: "Della (gpu)"
+low-xpu-efficiency-core-gpu:
+  cluster: core
+  cluster_name: "core (gpu)"
   partitions:
     - gpu
   xpu: gpu
   eff_thres_pct: 15
   proportion_thres_pct: 2
   num_top_users: 15
-  excluded_users:
-    - aturing
-    - einstein
-
-low-xpu-efficiency-della-pli:
-  cluster: della
-  cluster_name: "Della (pli)"
-  partitions:
-    - pli
-  xpu: gpu
-  eff_thres_pct: 15
-  proportion_thres_pct: 2
-  num_top_users: 5
-  excluded_users:
-    - aturing
-    - einstein
-
-low-xpu-efficiency-della-physics:
-  cluster: della
-  cluster_name: "Della (physics)"
-  partitions:
-    - physics
-  xpu: cpu
-  eff_thres_pct: 60
-  proportion_thres_pct: 2
-  num_top_users: 5
-  excluded_users:
-    - aturing
-    - einstein
-
-low-xpu-efficiency-stellar-intel:
-  cluster: stellar
-  cluster_name: "Stellar (Intel)"
-  partitions:
-    - all
-    - pppl
-    - pu
-    - serial
-  xpu: cpu
-  eff_thres_pct: 60
-  proportion_thres_pct: 2
-  num_top_users: 15
-  excluded_users:
-    - aturing
-    - einstein
-
-low-xpu-efficiency-tiger:
-  cluster: tiger
-  cluster_name: "Tiger"
-  partitions:
-    - cpu
-    - ext
-    - serial
-  xpu: cpu
-  eff_thres_pct: 60
-  proportion_thres_pct: 2
-  num_top_users: 15
-  excluded_users:
-    - aturing
-    - einstein
-
+  excluded_users: []
 
 #######################
 ## EXCESS CPU MEMORY ##
 #######################
-excess-cpu-memory-della-cpu:
+excess-cpu-memory-core-cpu:
   tb_hours_per_day: 10
   ratio_threshold: 0.35
   mean_ratio_threshold: 0.35
   median_ratio_threshold: 0.35
   num_top_users: 10
   clusters:
-    - della
+    - core
   partition:
-    - cpu
+    - fast
+    - long
+    - bigmem
   combine_partitions: False
   cores_per_node: 28
-  excluded_users:
-    - aturing
-    - einstein
-    - vonholdt
-
-excess-cpu-memory-della-datascience:
-  tb_hours_per_day: 10000
-  ratio_threshold: 0.25
-  mean_ratio_threshold: 0.25
-  median_ratio_threshold: 0.25
-  num_top_users: 10
-  clusters:
-    - della
-  partition:
-    - datasci
-  combine_partitions: False
-  cores_per_node: 10000
-  excluded_users:
-    - aturing
-    - einstein
-
-excess-cpu-memory-stellar:
-  tb_hours_per_day: 10000
-  ratio_threshold: 0.25
-  mean_ratio_threshold: 0.25
-  median_ratio_threshold: 0.25
-  num_top_users: 5
-  clusters:
-    - stellar
-  partition:
-    - all
-    - pppl
-    - pu
-    - serial
-  combine_partitions: False
-  cores_per_node: 76.8
-  excluded_users:
-    - aturing
-    - einstein
-
-excess-cpu-memory-tiger:
-  tb_hours_per_day: 10000
-  ratio_threshold: 0.25
-  mean_ratio_threshold: 0.25
-  median_ratio_threshold: 0.25
-  num_top_users: 5
-  clusters:
-    - tiger
-  partition:
-    - cpu
-    - ext
-    - serial
-  combine_partitions: True
-  cores_per_node: 32
-  excluded_users:
-    - aturing
-    - einstein
+  excluded_users: []
